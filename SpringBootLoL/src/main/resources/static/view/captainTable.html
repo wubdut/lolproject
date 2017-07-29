@@ -1,0 +1,63 @@
+
+<div class="row-fluid">
+	<div class="widget widget-padding span12">
+		<div class="widget-header">
+			<i class="icon-group"></i>
+			<h5>Dynamic Table</h5>
+			<div class="widget-buttons dataTables_wrapper form-inline">
+				<a href="http://www.datatables.net/usage/"
+					data-title="Documentation" class="tip" target="_blank"><i
+					class="icon-external-link"></i></a> <a href="#" data-title="Collapse"
+					data-collapsed="false" class="tip collapse"><i
+					class="icon-chevron-up"></i></a>
+			</div>
+		</div>
+		<div class="widget-body">
+			<table id="users"
+				class="table table-striped table-bordered dataTable">
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>用户名</th>
+						<th>位置</th>
+						<th>手机</th>
+						<th>邮箱</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr ng-repeat="item in playerList" teamid={{item.id}}>
+						<td><input type="text" value="{{item.register.name}}"></td>
+						<td><input type="text" value="{{item.register.username}}"></td>
+						<td><input type="text" value="{{item.register.position}}"></td>
+						<td><input type="text" value="{{item.register.mobile}}"><span class="label"></span></td>
+						<td><input type="text" value="{{item.register.email}}"></td>
+						<td>
+							<div class="btn-group" >
+								<a class="btn btn-small" userId={{item.id}} ng-click="captainEdit($event)"
+									href="#"> 编辑
+								</a>
+							</div>
+						</td>
+						<td>
+							<div class="btn-group" >
+								<a class="btn btn-small" userId={{item.id}} ng-click="captainDelete($event)"
+									href="#"> 删除
+								</a>
+							</div>
+						</td>
+					</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+		<!-- /widget-body -->
+	</div>
+	<!-- /widget -->
+</div>
+<!-- /row-fluid -->
+
+

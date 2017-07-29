@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Realm - REgister</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bluth Company">
+    <link rel="shortcut icon" href="assets/ico/favicon.html">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/theme.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/alertify.css" rel="stylesheet">
+    <link rel="Favicon Icon" href="favicon.ico">
+  </head>
+  <body>
+    <div id="wrap">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          	<div class="row-fluid">
+				<div class="widget container-narrow">
+					<div class="widget-header">
+						<i class="icon-edit"></i>
+						<h5>Create a new account</h5>
+					</div>  
+					<div class="widget-body clearfix" style="padding:25px;">
+						<form action="#" th:action="@{/register}" th:object="${register}" method="post">
+		      				<legend style="font-size: 16px; color:#555;" class=""><i class="icon-envelope"></i>注册</legend>
+							<div class="control-group ">
+								<label for="form_username">用户名:</label>
+								<div class="controls"><input th:field="*{username}" class="btn-block" type="text" name="username" id="form_username"></div>
+							</div>
+
+							<div class="control-group ">
+								<label for="form_name">姓名:</label>
+								<div class="controls"><input th:field="*{name}"class="btn-block" type="text" name="name" id="form_name"></div>
+							</div>
+							
+							<div class="control-group ">
+								<label for="form_workerid">工号:</label>
+								<div class="controls"><input th:field="*{workerid}" class="btn-block" type="text" name="workerid" id="form_workerid"></div>
+							</div>
+							
+							<div class="control-group ">
+								<label for="form_password">密码:</label>
+								<div class="controls"><input th:field="*{password}" class="btn-block" type="password" name="password" id="form_password"></div>
+							</div>
+							
+							<div class="control-group ">
+								<label for="form_mobile">手机:</label>
+								<div class="controls"><input th:field="*{mobile}" class="btn-block" type="text" name="mobile" id="form_mobile"></div>
+							</div>
+
+							<div class="control-group ">
+								<label for="form_email">E-mail:</label>
+								<div class="controls"><input th:field="*{email}" class="btn-block" type="text" name="email" id="form_email"></div>
+							</div>
+							
+							<div class="control-group ">
+								<label for="form_position">位置:</label>
+								<div class="controls"><input th:field="*{position}" class="btn-block" type="text" name="position" id="form_position"></div>
+							</div>
+			
+							<button type="submit" class="btn btn-large btn-block">提交</button>
+						</form>
+					</div>  
+				</div>  
+        	</div><!--/row-fluid-->
+        </div><!--/span10-->
+      </div><!--/row-fluid-->
+    </div><!--/.fluid-container-->
+    </div><!-- wrap ends-->
+
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<div class="row-fluid" id="create_team_id">
+	<div class="widget widget-padding span12">
+		<div class="widget-header">
+			<i class="icon-list-alt"></i>
+			<h5>Input fields classes</h5>
+		</div>
+		<div class="widget-header-under">
+			<label>创建队伍</label>
+		</div>
+		<div class="widget-body" style="height: 361px;">
+			<div class="widget-forms clearfix">
+				<form class="form-horizontal" ng-submit="teamSubmit()">
+					<div class="control-group">
+						<label class="control-label">队伍名：</label>
+						<div class="controls">
+							<input type="text" class="success" ng-model="formData.teamName">
+							<!-- span class="help-inline"><code>class="success"</code></span> -->
+						</div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label">事业部：</label>
+	                  <div class="controls">
+	                    <select class="span3" ng-model="formData.depa" ng-options="item.name for item in departmentList">
+	                    </select>
+	                  </div>
+	                </div>
+	      
+	                <div class="control-group">
+	                  <div class="controls">
+	                    <button class="btn btn-large btn-primary" type="submit">提交</button>
+	                  </div>
+	                </div>
+
+					<!-- div class="control-group">
+						<label class="control-label">Disabled state</label>
+						<div class="controls">
+							<input type="text" disabled="disabled"> <span
+								class="help-inline"><code>disabled="disabled"</code></span>
+						</div>
+					</div> -->
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
