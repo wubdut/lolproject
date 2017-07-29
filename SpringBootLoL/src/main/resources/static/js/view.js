@@ -4,6 +4,8 @@ var theTeamId = "";
 
 app.controller('temCtrl', function($scope, $http, $location) {
 	
+	$scope.mytem = "";
+	
 	$scope.createTeam = function() {
 		$http.get("/getAllDepartment").then(function (response) {
 	        $scope.departmentList = response.data;
@@ -35,6 +37,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 	$scope.teamInfo = function($event) {
 		var teamid = $event.target.getAttribute("teamid");
 		var url = '/getTeamUser/'+teamid;
+		$scope.mytem = "view/teamInfo.html";
 		$http.get(url).then(function(response) {
 			$scope.playerList = response.data;
 		});
@@ -161,4 +164,12 @@ app.controller('temCtrl', function($scope, $http, $location) {
 	}
 	
 	
+	
+	$scope.chartId = "";
+	$scope.chartTable = function() {
+		$scope.chartId = "chartId";
+	}
+	
+	
 });
+
