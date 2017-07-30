@@ -10,12 +10,14 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get("/getAllDepartment").then(function (response) {
 	        $scope.departmentList = response.data;
 	    });
+		$("#chartId").html("");
 	}
 	
 	$scope.otherTeam = function() {
 		$http.get("/getAllTeam").then(function (response) {
 	        $scope.teamList = response.data;
 	    });
+		$("#chartId").html("");
 	}
 	
 	$scope.formData = {};
@@ -32,6 +34,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.post('/createTeam', data).success(function(response) {
 			alert(response);
 		});
+		$("#chartId").html("");
 	}
 	
 	$scope.teamInfo = function($event) {
@@ -49,6 +52,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get("/getMyTeam/" + register_name).then(function(response) {
 			$scope.playerList = response.data;
 		});
+		$("#chartId").html("");
 	}
 	
 	$scope.captainTable = function() {
@@ -57,6 +61,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get("/getMyTeam/" + register_name).then(function(response) {
 			$scope.playerList = response.data;
 		});
+		$("#chartId").html("");
 	}
 	
 	$scope.captainEdit = function($event) {
@@ -78,6 +83,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get("/getAllDepartment").then(function (response) {
 	        $scope.departmentList = response.data;
 	    });
+		$("#chartId").html("");
 	}
 	
 	$scope.checkData = {depa : "事业部", name : "姓名"};
@@ -120,6 +126,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get('/getAddTable').then(function(response) {
 			$scope.registerList = response.data;
 		});
+		$("#chartId").html("");
 	}
 	
 	$scope.addPlayer = function($event) {
@@ -134,7 +141,7 @@ app.controller('temCtrl', function($scope, $http, $location) {
 	
 	
 	$scope.matchTable = function() {
-		
+		$("#chartId").html("");
 	}
 	
 	$scope.arrange = function() {
@@ -163,12 +170,86 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		data.date = "比赛时间"
 	}
 	
-	
-	
-	$scope.chartId = "";
-	$scope.chartTable = function() {
-		$scope.chartId = "chartId";
+	function chart_1() {
+		
+		var myChart = echarts.init(document.getElementById("chartId"));
+		
+		option = {
+			    angleAxis: {
+			        type: 'category',
+			        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+			        z: 10
+			    },
+			    radiusAxis: {
+			    },
+			    polar: {
+			    },
+			    series: [{
+			        type: 'bar',
+			        data: [1, 2, 3, 4, 3, 5, 1],
+			        coordinateSystem: 'polar',
+			        name: '不可参赛',
+			        stack: 'a'
+			    }, {
+			        type: 'bar',
+			        data: [1, 2, 3, 4, 1, 2, 5],
+			        coordinateSystem: 'polar',
+			        name: '可参赛',
+			        stack: 'a'
+			    }],
+			    legend: {
+			        show: true,
+			        data: ['不可参赛', '可参赛']
+			    }
+			};
+		
+		myChart.setOption(option);
 	}
+	
+function chart_2() {
+		
+		var myChart = echarts.init(document.getElementById("chartId2"));
+		
+		option = {
+			    angleAxis: {
+			        type: 'category',
+			        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+			        z: 10
+			    },
+			    radiusAxis: {
+			    },
+			    polar: {
+			    },
+			    series: [{
+			        type: 'bar',
+			        data: [1, 2, 3, 4, 3, 5, 1],
+			        coordinateSystem: 'polar',
+			        name: '不可参赛',
+			        stack: 'a'
+			    }, {
+			        type: 'bar',
+			        data: [1, 2, 3, 4, 1, 2, 5],
+			        coordinateSystem: 'polar',
+			        name: '可参赛',
+			        stack: 'a'
+			    }],
+			    legend: {
+			        show: true,
+			        data: ['不可参赛', '可参赛']
+			    }
+			};
+		
+		myChart.setOption(option);
+	}
+	
+	$scope.chartTable = function() {
+		$("#chartId").attr("style","width: 800px;height:800px;");
+		$("#chartId").attr("_echarts_instance_","");
+		
+		chart_1();
+		chart_2();
+	}
+	
 	
 	
 });
