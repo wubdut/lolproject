@@ -50,11 +50,10 @@ public class LoggerDao {
 	  /**
 	   * Return the user having the passed email.
 	   */
-	  public Logger getByEmail(String email) {
-	    return (Logger) entityManager.createQuery(
-	        "from User where email = :email")
-	        .setParameter("email", email)
-	        .getSingleResult();
+	  public List<Logger> getByUsername(String username) {
+	    return (List<Logger>) entityManager.createQuery(
+	        "from Logger where username = :username")
+	        .setParameter("username", username).getResultList();
 	  }
 
 	  /**

@@ -40,7 +40,14 @@ public class WebController {
 	public String login(@ModelAttribute("logger") Logger logger) {
 //		System.out.println("用户：" + logger.getUsername() + "; 密码：" + logger.getPassword());
 		if (loggerDao.checker(logger)) {
-			return "log_success";
+			int flag = userDao.contains(logger.getUsername());
+			
+			if (flag == 0) {
+				return "log_success";
+			} else {
+				User user = userDao.getByUserName(logger.getUsername());
+				return "log_success_"+user.getAuthority().getId();
+			}
 		} else {
 			return "login2";
 		}
@@ -54,15 +61,17 @@ public class WebController {
 	
 	@PostMapping("/register")
 	public String submitRegister(@ModelAttribute("register") Register register) {
-//		System.out.println(register.getUsername());
-//		System.out.println(register.getName());
-//		System.out.println(register.getWorkerid());
-//		System.out.println(register.getEmail());
-//		System.out.println(register.getMobile());
-//		System.out.println(register.getPosition());
-//		System.out.println(register.getPassword());
+		System.out.println(register.getUsername());
+		System.out.println(register.getName());
+		System.out.println(register.getWorkerid());
+		System.out.println(register.getEmail());
+		System.out.println(register.getMobile());
+		System.out.println(register.getPosition());
+		System.out.println(register.getPassword());
 		
-		if (loggerDao.getAll().size() == 0) {
+		
+		System.out.println(loggerDao.getAll().size());
+		if (loggerDao.getByUsername(register.getUsername()).size() == 0) {
 			loggerDao.create(new Logger(register.getUsername(), register.getPassword()));
 			registerDao.create(register);
 			return "redirect:/login";
@@ -82,4 +91,6 @@ public class WebController {
 	  private RegisterDao registerDao;
 	  @Autowired
 	  private LoggerDao loggerDao;
+	  @Autowired
+	  private UserDao userDao;
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,7 +49,7 @@ public class TeamController {
 		Team team = new Team("" + ((int)(Math.random()*4)), postTeamCreate.getName(),department, register);
 		
 		teamDao.create(team);
-		userDao.create(new User(register, team, authorityDao.getById(1)));
+		userDao.create(new User(register, team, authorityDao.getById(2)));
 		
 		try {
 //			teamDao.create(team);
@@ -98,6 +99,8 @@ public class TeamController {
 		System.out.println("TeamList : " + teamList.size());
 		return teamList;
 	}
+	
+	
 
 	// ------------------------
 	// PRIVATE FIELDS

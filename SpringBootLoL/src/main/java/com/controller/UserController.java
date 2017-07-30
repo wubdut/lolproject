@@ -18,6 +18,7 @@ import com.dao.TeamDao;
 import com.dao.UserDao;
 import com.models.Authority;
 import com.models.Register;
+import com.models.Team;
 import com.models.TeamId;
 import com.models.User;
 
@@ -96,6 +97,26 @@ public class UserController {
     }
     return res;
   }
+  
+    @RequestMapping(value = "/getTeamDelete/{teamId}")
+	@ResponseBody
+	public List<Team> queryTeam(@PathVariable String teamId) {
+		long id = Long.parseLong(teamId);
+		Team team = teamDao.getById(id);
+		List<User> list = userDao.getByTeamId(id);
+		for (User user : list) {
+//			userDao.delete(user);
+		}
+//		teamDao.delete(team);
+		List<Team> teamList;
+		try {
+			teamList = teamDao.getAll();
+		} catch (Exception ex) {
+			return null;
+		}
+		System.out.println("TeamList : " + teamList.size());
+		return teamList;
+	}
   
   @RequestMapping(value="/captainEdit/{userId}")
   @ResponseBody
@@ -235,7 +256,7 @@ public class UserController {
 	
 	Register register = registerDao.getById(Integer.parseInt(id));
 	
-	userDao.create(new User(register, captain.getTeam(), new Authority(2)));
+	userDao.create(new User(register, captain.getTeam(), new Authority(3)));
 	Set<Long> set = new HashSet<Long>();
 	
 	for (User user : userDao.getAll()) {

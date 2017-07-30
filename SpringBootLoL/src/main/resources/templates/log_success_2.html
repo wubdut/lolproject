@@ -76,6 +76,11 @@
           </div>
           <div class="accordion-group">
             <div class="accordion-heading">
+              <a ng-click="mytem='view/captainTable.html';captainTable()" class="accordion-toggle active b_F79999" href="#"><i class="icon-dashboard"></i> <span>我是队长</span></a>
+            </div>
+          </div>
+          <div class="accordion-group">
+            <div class="accordion-heading">
               <a ng-click="mytem='view/teamTable.html';otherTeam()" class="accordion-toggle b_C3F7A7 collapsed" href="#"><i class="icon-magic"></i> <span>所有战队</span></a>
             </div>
           </div>
@@ -89,15 +94,24 @@
           
           <div class="accordion-group">
             <div class="accordion-heading">
+              <a ng-click="mytem='view/addTable.html';addTable()" class="accordion-toggle b_C3F7A7 collapsed" href="#"><i class="icon-magic"></i> <span>添加队员</span></a>
+            </div>
+          </div>
+          
+          
+          <div class="accordion-group">
+            <div class="accordion-heading">
               <a class="accordion-toggle b_9FDDF6 collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse2"><i class="icon-reorder"></i> <span>对战信息</span></a>
             </div>
             <div id="collapse2" class="accordion-body collapse">
               <div class="accordion-inner">
                 <a ng-click="mytem='view/matchTable.html';matchTable()" class="accordion-toggle" href="#"><i class="icon-rss"></i> 赛程安排</a>
                 <a class="accordion-toggle" href="#"><i class="icon-calendar"></i> 积分榜</a>
+                <a ng-click="mytem='view/chartTable.html';techTable()" class="accordion-toggle" href="#"><i class="icon-picture"></i> 技术统计</a>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <!-- /Side menu -->

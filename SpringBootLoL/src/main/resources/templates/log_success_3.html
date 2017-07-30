@@ -71,7 +71,7 @@
         <div class="accordion" id="accordion2">
           <div class="accordion-group">
             <div class="accordion-heading">
-              <a ng-click="mytem='view/createTeam.html';createTeam()" class="accordion-toggle active b_F79999" href="#"><i class="icon-dashboard"></i> <span>创建战队</span></a>
+              <a ng-click="mytem='view/teamInfo.html';getMyTeam()" class="accordion-toggle active b_F79999" href="#"><i class="icon-dashboard"></i> <span>我的战队</span></a>
             </div>
           </div>
           <div class="accordion-group">
@@ -95,9 +95,11 @@
               <div class="accordion-inner">
                 <a ng-click="mytem='view/matchTable.html';matchTable()" class="accordion-toggle" href="#"><i class="icon-rss"></i> 赛程安排</a>
                 <a class="accordion-toggle" href="#"><i class="icon-calendar"></i> 积分榜</a>
+                <a ng-click="mytem='view/chartTable.html';techTable()" class="accordion-toggle" href="#"><i class="icon-calendar"></i> 技术统计</a>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <!-- /Side menu -->

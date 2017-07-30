@@ -1,13 +1,18 @@
 package com.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "team")
@@ -29,6 +34,7 @@ public class Team {
 	@OneToOne
 	private Register register;
 	
+	
 	public Team() {}
 	
 	
@@ -47,8 +53,6 @@ public class Team {
 		this.department = department;
 		this.register = register;
 	}
-
-
 
 	public long getId() {
 		return id;
@@ -111,9 +115,4 @@ public class Team {
 		this.register = register;
 	}
 
-
-
-
-	
-	
 }
