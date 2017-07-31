@@ -145,17 +145,9 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		$http.get('/getAddPlayer/'+name+"&"+id).then(function(response) {
 			$scope.playerList = response.data;
 			
-			if (response.data.length < 5) {
-				alert("添加成功");
-			}
-			else {
-				alert("队员已满");
-			}
-			
+			alert("队员5则不会添加");
 		});
 	}
-	
-	
 	
 	$scope.matchTable = function() {
 		chartRefresh();
