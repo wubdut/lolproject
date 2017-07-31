@@ -144,7 +144,14 @@ app.controller('temCtrl', function($scope, $http, $location) {
 		var id = $event.target.getAttribute("registerId");
 		$http.get('/getAddPlayer/'+name+"&"+id).then(function(response) {
 			$scope.playerList = response.data;
-			alert("添加成功");
+			
+			if (response.data.length < 5) {
+				alert("添加成功");
+			}
+			else {
+				alert("队员已满");
+			}
+			
 		});
 	}
 	

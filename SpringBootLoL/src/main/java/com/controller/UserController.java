@@ -256,7 +256,14 @@ public class UserController {
 	
 	Register register = registerDao.getById(Integer.parseInt(id));
 	
-	userDao.create(new User(register, captain.getTeam(), new Authority(3)));
+	int numOfTeam = userDao.getByTeamId(captain.getTeam().getId()).size();
+	
+	if (numOfTeam < 5) {
+		userDao.create(new User(register, captain.getTeam(), new Authority(3)));
+	}
+	
+	
+	
 	Set<Long> set = new HashSet<Long>();
 	
 	for (User user : userDao.getAll()) {
